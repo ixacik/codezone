@@ -39,7 +39,7 @@ const NavContent = () => {
 
 const LeftSidebar = () => {
   return (
-    <aside className="flex-between background-light900_dark200 sticky z-40 h-screen w-[266px] flex-col px-6 py-8 pt-32 shadow-light-300 dark:shadow-none max-lg:w-fit max-lg:px-2 max-sm:hidden">
+    <aside className="flex-between background-light900_dark200 sticky z-40 h-screen w-[266px] flex-col px-6 py-8 pt-32 shadow-light-200 dark:shadow-none max-lg:w-fit max-lg:px-2 max-sm:hidden">
       <div className="w-full">
         <NavContent />
       </div>

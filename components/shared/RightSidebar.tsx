@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import RenderTag from "./RenderTag";
 
 const questions = [
   "officia aliqua adipisicing anim proident velit ",
@@ -9,11 +10,32 @@ const questions = [
   "officia aliqua  proident velit minim ea amet laboris ",
 ];
 
-const tags = ["nextjs", "javascript", "reactjs", "es6", "nextjs"];
+const tags = [
+  {
+    label: "nextjs",
+    number: 2,
+  },
+  {
+    label: "es6",
+    number: 1,
+  },
+  {
+    label: "vercel",
+    number: 6,
+  },
+  {
+    label: "docker",
+    number: 1,
+  },
+  {
+    label: "javascript",
+    number: 11,
+  },
+];
 
 const RightSidebar = () => {
   return (
-    <section className="placeholder background-light900_dark200 sticky flex h-screen w-[330px] flex-col gap-16 px-6 py-8 pt-32">
+    <section className="background-light900_dark200 light-border sticky z-40 flex h-screen w-[330px] flex-col  gap-16 border-l px-6 py-8 pt-32 shadow-light-300 dark:shadow-none max-xl:hidden">
       <div className="flex flex-col gap-4">
         <h2 className="h2-semibold text-dark100_light900">Top Questions</h2>
         {questions.map((question) => (
@@ -27,7 +49,8 @@ const RightSidebar = () => {
               src="/assets/icons/chevron-right.svg"
               width={20}
               height={20}
-              alt="Link"
+              alt="Chevron Right"
+              className="invert-colors"
             />
           </Link>
         ))}
@@ -38,17 +61,10 @@ const RightSidebar = () => {
           <Link
             href="/"
             className="flex-between body-medium w-full items-center gap-12"
-            key={tag}
+            key={tag.label}
           >
-            <p className="background-light800_dark300 text-dark400_light700 rounded-xl px-4 py-2">
-              {tag}
-            </p>
-            <Image
-              src="/assets/icons/chevron-right.svg"
-              width={20}
-              height={20}
-              alt="Link"
-            />
+            <RenderTag label={tag.label} />
+            <p className="text-dark100_light900 small-medium">{tag.number}</p>
           </Link>
         ))}
       </div>

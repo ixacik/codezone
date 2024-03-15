@@ -27,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} text-dark100_light900`}
+      >
         <ClerkProvider
           appearance={{
             elements: {
