@@ -11,31 +11,15 @@ const questions = [
 ];
 
 const tags = [
-  {
-    label: "nextjs",
-    number: 2,
-  },
-  {
-    label: "es6",
-    number: 1,
-  },
-  {
-    label: "vercel",
-    number: 6,
-  },
-  {
-    label: "docker",
-    number: 1,
-  },
-  {
-    label: "javascript",
-    number: 11,
-  },
+  { name: "Tag1", _id: "1" },
+  { name: "Tag2", _id: "2" },
+  { name: "Tag3", _id: "3" },
+  // Add more placeholder objects as needed
 ];
 
 const RightSidebar = () => {
   return (
-    <section className="background-light900_dark200 light-border sticky z-40 flex h-screen w-[330px] flex-col  gap-16 border-l px-6 py-8 pt-32 shadow-light-300 dark:shadow-none max-xl:hidden">
+    <section className="background-light900_dark200 light-border sticky top-0 z-40 flex h-screen w-[330px] flex-col  gap-16 border-l px-6 py-8 pt-32 shadow-light-300 dark:shadow-none max-xl:hidden">
       <div className="flex flex-col gap-4">
         <h2 className="h2-semibold text-dark100_light900">Top Questions</h2>
         {questions.map((question) => (
@@ -61,10 +45,10 @@ const RightSidebar = () => {
           <Link
             href="/"
             className="flex-between body-medium w-full items-center gap-12"
-            key={tag.label}
+            key={tag.name}
           >
-            <RenderTag label={tag.label} />
-            <p className="text-dark100_light900 small-medium">{tag.number}</p>
+            <RenderTag name={tag.name} _id={tag._id} />
+            <p className="text-dark100_light900 small-medium">1</p>
           </Link>
         ))}
       </div>

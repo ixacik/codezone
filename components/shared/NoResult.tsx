@@ -1,8 +1,14 @@
 import Image from "next/image";
-import { Button } from "../ui/button";
 import AskQuestionButton from "./AskQuestionButton";
 
-const NoResult = () => {
+type Props = {
+  title: string;
+  description: string;
+  buttonTitle: string;
+  buttonHref: string;
+};
+
+const NoResult = ({ title, description, buttonTitle, buttonHref }: Props) => {
   return (
     <div className="flex w-full flex-col items-center justify-center pt-12">
       <Image
@@ -19,15 +25,11 @@ const NoResult = () => {
         height={300}
         className="hidden object-contain dark:block"
       />
-      <h3 className="h3-bold text-dark100_light900 mt-12">
-        There's no question to show
-      </h3>
-      <p className="mb-10 mt-6 max-w-[450px] text-center">
-        Be the first to break the silence! Ask a question and kickstart the
-        discussion, our query could be the next big thing other learn from. Get
-        involved.
+      <h3 className="h3-bold text-dark100_light900 mt-12">{title}</h3>
+      <p className="text-dark500_light700 mb-10 mt-6 max-w-[450px] text-center">
+        {description}
       </p>
-      <AskQuestionButton />
+      <AskQuestionButton title={buttonTitle} href={buttonHref} />
     </div>
   );
 };
