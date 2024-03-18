@@ -1,6 +1,6 @@
 "use server";
 
-import { connectToDatabase } from "../mongoose";
+import { connectToDatabase } from "../../database/mongoose";
 
 // create question
 export async function createQuestion(question: any) {
