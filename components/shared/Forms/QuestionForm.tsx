@@ -21,8 +21,9 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { Badge } from "@/components/ui/badge";
+import { createQuestion } from "@/lib/actions/question.actions";
 
-const type: any = "create";
+const type: any = "edit";
 
 const QuestionForm = () => {
   const editorRef = useRef(null);
@@ -37,11 +38,12 @@ const QuestionForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof questionsSchema>) {
+  async function onSubmit(values: z.infer<typeof questionsSchema>) {
     setIsSubmitting(true);
 
     try {
       // make call to create question
+      await createQuestion(values);
     } catch (error) {
       // handle error
     }
@@ -122,6 +124,15 @@ const QuestionForm = () => {
               </FormLabel>
               <FormControl className="mt-3.5">
                 <Editor
+                  onInit={(evt, editor) => {
+                    // @ts-ignore
+                    editorRef.current = editor;
+                  }}
+                  onBlur={field.onBlur}
+                  onEditorChange={(content) => {
+                    field.onChange(content);
+                  }}
+                  value={field.value}
                   apiKey={process.env.NEXT_PUBLIC_TINYMCE_KEY}
                   init={{
                     menubar: false,
