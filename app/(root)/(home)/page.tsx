@@ -19,7 +19,7 @@ const questions = [
       name: "User One",
     },
     upvotes: 10,
-    views: 20000,
+    views: 22300,
     answers: [],
     createdAt: new Date("2023-03-15T14:25:00Z"),
   },
